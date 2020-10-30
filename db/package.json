@@ -1,0 +1,14 @@
+{
+  "name": "ba-db",
+  "version": "1.0.0",
+  "description": "This folder contains scripts to set up our DynamoDB Tables",
+  "main": "01-init-table.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "md5": "^2.2.1"
+  }
+}

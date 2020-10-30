@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+    db:
+        build: ./db
+        container_name: project-db
+        environment:
+            POSTGRES_DB: $DB_NAME
+            POSTGRES_USER: $DB_ADMIN_USER
+            POSTGRES_PASSWORD: $DB_ADMIN_PASS
+            DB_READONLY_USER: $DB_READONLY_USER
+            DB_READONLY_PASS: $DB_READONLY_PASS
+            DB_WRITE_USER: $DB_WRITE_USER
+            DB_WRITE_PASS: $DB_WRITE_PASS
+            DB_DEFAULT_SCHEMA: $DB_DEFAULT_SCHEMA
+        env_file:
+            - .env
+        ports:
+            - "5432:5432"
+
+    sqs:
+        build: ./sqs-local
+        container_name: project-sqs
+        ports:
+            - "9324:9324"
+
+    # frontend:
+    #     build: ./frontend
+    #     tty: true
+    #     container_name: project-frontend
+    #     environment:
+    #         CHOKIDAR_USEPOLLING: "true"
+    #     depends_on:
+    #         - api
+    #     volumes:
+    #         - './frontend:/app'
+    #         - '/app/node_modules'
+    #     env_file:
+    #         - .env
+    #     ports:
+    #         - "3001:3000"
+
+    # webserver:
+    #     build: ./webserver
+    #     container_name: project-webserver
+    #     depends_on:
+    #         - api
+    #         - frontend
+    #     environment:
+    #         DOMAIN: $DOMAIN
+    #         NODE_ENV: $NODE_ENV
+    #     env_file:
+    #         - .env
+    #     ports:
+    #         - "80:80"
+    #         - "443:443"

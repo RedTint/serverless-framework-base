@@ -1,0 +1,32 @@
+{
+  "name": "serverless-framework-base",
+  "version": "1.0.0",
+  "description": "This will serve as my reference for future serverless framework projects.",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "offline": "serverless offline start",
+    "init-db": "node ./db/01-init-table.js",
+    "seed-db": "node ./db/02-seed-data.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com//RedTint/serverless-framework-base"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^6.4.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.692.0",
+    "axios": "^0.19.2",
+    "generate-password": "^1.5.1",
+    "md5": "^2.2.1",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31",
+    "qs": "^6.9.4",
+    "shasum": "^1.0.2",
+    "uuid": "^8.2.0"
+  }
+}
